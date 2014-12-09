@@ -1268,7 +1268,7 @@ new file mode 100644
 index 0000000..d023598
 --- /dev/null
 +++ b/jni/java/org/apache/tomcat/jni/ssl/SSLContextHolder.java
-@@ -0,0 +1,66 @@
+@@ -0,0 +1,67 @@
 +package org.apache.tomcat.jni.ssl;
 +
 +import org.apache.tomcat.jni.Pool;
@@ -1294,6 +1294,7 @@ index 0000000..d023598
 +            /* TODO: ensure parity with Apache httpd in setting up the context. */
 +            SSLContext.setOptions(sslContext, SSL.SSL_OP_ALL);
 +            SSLContext.setOptions(sslContext, SSL.SSL_OP_NO_SSLv2);
++            SSLContext.setOptions(sslContext, SSL.SSL_OP_NO_SSLv3);
 +            SSLContext.setOptions(sslContext, SSL.SSL_OP_CIPHER_SERVER_PREFERENCE);
 +            SSLContext.setOptions(sslContext, SSL.SSL_OP_SINGLE_DH_USE);
 +            SSLContext.setOptions(sslContext, SSL.SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION);
