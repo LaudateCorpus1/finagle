@@ -456,7 +456,7 @@ index 0000000..186bd2f
 +                    throw new RuntimeException("Buffer pool write overflow");
 +
 +                if (src.hasArray()) {
-+                    buffer.put(src.array(), src.position(), len);
++                    buffer.put(src.array(), src.arrayOffset() + src.position(), len);
 +                } else {
 +                    int pos = src.position();
 +                    int lim = src.limit();
@@ -489,7 +489,7 @@ index 0000000..186bd2f
 +                    throw new RuntimeException("Buffer pool write overflow");
 +
 +                if (src.hasArray()) {
-+                    buffer.put(src.array(), src.position(), len);
++                    buffer.put(src.array(), src.arrayOffset() + src.position(), len);
 +                } else {
 +                    int pos = src.position();
 +                    int lim = src.limit();
@@ -521,7 +521,7 @@ index 0000000..186bd2f
 +                if (sslRead > 0) {
 +                    read.set(sslRead);
 +                    if (dst.hasArray()) {
-+                        buffer.get(dst.array(), dst.position(), sslRead);
++                        buffer.get(dst.array(), dst.arrayOffset() + dst.position(), sslRead);
 +                        dst.position(dst.position() + sslRead);
 +                    } else {
 +                        int lim = buffer.limit();
